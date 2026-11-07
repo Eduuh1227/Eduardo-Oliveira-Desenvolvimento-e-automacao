@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
+  },
+  "private": true,
+  "name": "eduardo-oliveira-portfolio",
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "^0.180.0",
+    "@types/node": "22.19.19",
+    "typescript": "5.9.3"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "react-dom": "19.2.6",
+    "react": "19.2.6",
+    "@vercel/blob": "^2.4.0",
+    "lucide-react": "^1.31.0",
+    "next": "16.3.4",
+    "three": "^0.187.0"
+  }
+}

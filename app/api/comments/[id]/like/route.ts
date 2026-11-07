@@ -1,0 +1,3 @@
+import {origin,visitor,json,fail,rate,HttpError} from '../../../shared';
+import {indexKey,change,type Entry} from '../../../storage';
+export async function POST(request:Request,{params}:{params:Promise<{id:string}>}){try{origin(request);await rate(request,'like',80);const {id}=await params,user=visitor(request);const result=await change(indexKey,[] as Entry[],rows=>{const c=rows.find(r=>r.id===id);if(!c)throw new HttpError(404,'Comentário não encontrado.');const liked=!c.voters.includes(user);c.voters=liked?[...c.voters,user]:c.voters.filter(v=>v!==user);return {liked,likes:c.voters.length};});return json(request,result,200,user);}catch(e){return fail(request,e)}}

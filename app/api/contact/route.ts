@@ -1,0 +1,4 @@
+import {message as saveMessage} from '../storage';
+import { origin,json,fail,text,honeypot,rate,boundedBody,HttpError } from '../shared';
+export async function POST(request:Request){try{origin(request);await rate(request,'contact',8);let data;try{data=JSON.parse(new TextDecoder().decode(await boundedBody(request,20000)))}catch(e){if(e instanceof HttpError)throw e;throw new HttpError(400,'Formulário inválido.');}honeypot(data.website);const name=text(data.name,'O nome',2,80),email=text(data.email,'O e-mail',5,254),message=text(data.message,'A mensagem',10,5000);if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new HttpError(400,'Informe um endereço de e-mail válido.');const id=crypto.randomUUID();await saveMessage(id,{id,name,email,message,createdAt:Date.now()});return json(request,{ok:true,id},201);}catch(e){return fail(request,e)}}
+
