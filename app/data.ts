@@ -7,7 +7,44 @@ export const projects = [
 export type Project = typeof projects[number];
 export const resumeUrl:string|null=null;
 export type Certificate={title:string;issuer:string;image:string;documentUrl?:string};
-export const certificates:Certificate[]=[];
+export const certificates:Certificate[]=[
+  {
+    "title": "React Native Criando aplicativos do zero ao avançado",
+    "issuer": "Udemy · Matheus Fraga",
+    "image": "/certificates/UC-bd2a9323-a36f-4d70-8cc5-d4651ae436c1.jpg",
+    "documentUrl": "https://ude.my/UC-bd2a9323-a36f-4d70-8cc5-d4651ae436c1"
+  },
+  {
+    "title": "Curso IA Generativa Do Zero ao Avançado (2026)",
+    "issuer": "Udemy · Andre Iacono",
+    "image": "/certificates/UC-86f5a834-9c4a-4ba6-a0da-b5580d034a58.jpg",
+    "documentUrl": "https://ude.my/UC-86f5a834-9c4a-4ba6-a0da-b5580d034a58"
+  },
+  {
+    "title": "Java primeiros passos: Lógica de Programação e Algoritmos",
+    "issuer": "Udemy · Nelio Alves",
+    "image": "/certificates/UC-5c2fd490-f497-464a-850b-d94c962f6972.jpg",
+    "documentUrl": "https://ude.my/UC-5c2fd490-f497-464a-850b-d94c962f6972"
+  },
+  {
+    "title": "Aprenda a escolher, montar e testar um computador!",
+    "issuer": "Udemy · Felipe Miranda",
+    "image": "/certificates/UC-4ac304be-7ca6-403a-bd14-5a871edd18a0.jpg",
+    "documentUrl": "https://ude.my/UC-4ac304be-7ca6-403a-bd14-5a871edd18a0"
+  },
+  {
+    "title": "Git e GitHub: Aprenda em 3 Dias com Projetos Reais",
+    "issuer": "Udemy · Andre Iacono",
+    "image": "/certificates/UC-82903d43-a8a4-4f38-8a35-e5b8863d56a5.jpg",
+    "documentUrl": "https://ude.my/UC-82903d43-a8a4-4f38-8a35-e5b8863d56a5"
+  },
+  {
+    "title": "Curso Técnico em TI completo: manutenção, formatação...",
+    "issuer": "Udemy · Leandro Bueno",
+    "image": "/certificates/UC-ff12020f-b4e1-4be6-a61c-39deaf1b7f68.jpg",
+    "documentUrl": "https://ude.my/UC-ff12020f-b4e1-4be6-a61c-39deaf1b7f68"
+  }
+];
 export const technologies = [
- {name:'HTML5',symbol:'5',color:'#e96228',style:'shield'}, {name:'CSS3',symbol:'3',color:'#329bd6',style:'shield'}, {name:'JavaScript',symbol:'JS',color:'#f0db4f',style:'square'}, {name:'Node.js',symbol:'JS',color:'#6fa65b',style:'hex'}, {name:'APIs REST',symbol:'{ }',color:'#bababa',style:'code'}, {name:'Git',symbol:'git',color:'#ed5d40',style:'code'}, {name:'GitHub',symbol:'github',color:'#e8e8e8',style:'icon'}, {name:'Vercel',symbol:'▲',color:'#f0f0f0',style:'code'}, {name:'Automação',symbol:'workflow',color:'#b4c4ce',style:'icon'}, {name:'Integrações',symbol:'plug',color:'#b6b6c7',style:'icon'},
+ {name:'HTML5',symbol:'5',color:'#e96228',style:'shield'}, {name:'CSS3',symbol:'3',color:'#329bd6',style:'shield'}, {name:'JavaScript',symbol:'JS',color:'#f0db4f',style:'square'}, {name:'TypeScript',symbol:'TS',color:'#3178c6',style:'square'}, {name:'MySQL',symbol:'SQL',color:'#4479a1',style:'hex'}, {name:'Node.js',symbol:'JS',color:'#6fa65b',style:'hex'}, {name:'APIs REST',symbol:'{ }',color:'#bababa',style:'code'}, {name:'Git',symbol:'git',color:'#ed5d40',style:'code'}, {name:'GitHub',symbol:'github',color:'#e8e8e8',style:'icon'}, {name:'Vercel',symbol:'▲',color:'#f0f0f0',style:'code'}, {name:'Automação',symbol:'workflow',color:'#b4c4ce',style:'icon'}, {name:'Integrações',symbol:'plug',color:'#b6b6c7',style:'icon'},
 ];
