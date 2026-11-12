@@ -5,7 +5,7 @@ export const projects = [
  { slug:'bot-whatsapp-web', title:'Bot WhatsApp Web', category:'BACK-END · BOT E AUTOMAÇÃO', kind:'bot', description:'Atendimento automatizado com menu, busca de CEP, integrações e conversa com IA.', body:'Bot de atendimento desenvolvido com Node.js e WhatsApp Web. Reúne menu automatizado, integração por API, consulta de CEP, respostas dinâmicas e conversa com inteligência artificial para tornar o atendimento mais útil e ágil.', technologies:['Node.js','WhatsApp Web','APIs','IA'], features:['Menu de atendimento automatizado','Consulta de CEP por API','Respostas dinâmicas','Conversa com inteligência artificial'], live:null, repo:'https://github.com/Eduuh1227/bot-whatsappweb/tree/bot-webwhatsapp' },
 ];
 export type Project = typeof projects[number];
-export const resumeUrl:string|null=null;
+export const resumeUrl:string|null='/documents/Eduardo_Oliveira_Curriculo.pdf';
 export type Certificate={title:string;issuer:string;image:string;documentUrl?:string};
 export const certificates:Certificate[]=[
   {
