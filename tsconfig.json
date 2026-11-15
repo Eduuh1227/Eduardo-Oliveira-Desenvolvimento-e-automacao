@@ -28,7 +28,8 @@
       ]
     },
     "types": [
-      "node"
+      "node",
+      "@cloudflare/workers-types"
     ]
   },
   "include": [
@@ -47,6 +48,7 @@
     ".wrangler",
     ".sites-runtime",
     "outputs",
-    "work"
+    "work",
+    "worker/previous-api"
   ]
 }

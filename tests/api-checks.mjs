@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {writeFileSync} from 'node:fs';
-const base='http://127.0.0.1:5173';
+const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8787'; if(!['127.0.0.1','localhost'].includes(new URL(base).hostname))throw Error('Execute estes testes apenas no ambiente local.');
 let cookie='';const checks=[];
 async function request(path,options={}){const response=await fetch(base+path,{...options,headers:{Origin:base,...(cookie?{Cookie:cookie}:{}),...options.headers}});if(response.headers.get('set-cookie'))cookie=response.headers.get('set-cookie').split(';')[0];return response;}
 function check(name,condition){assert.ok(condition,name);checks.push(name);console.log('PASS',name)}
@@ -20,3 +20,4 @@ response=await request('/api/media/invalid.svg');check('Invalid media path rejec
 for(const slug of ['ilima-advogados','controle-de-tarefas','bot-whatsapp-web']){response=await request(`/projetos/${slug}`);check(`Project route ${slug}`,response.status===200);}
 response=await request('/projetos/inexistente');check('Unknown project has 404',response.status===404);
 writeFileSync(new URL('./api-results.json',import.meta.url),JSON.stringify({date:new Date().toISOString(),checks,commentId:comment.id,attachment:comment.attachmentUrl},null,2));
+
