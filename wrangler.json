@@ -1,2 +1,27 @@
-{"name":"eduardo-oliveira-portfolio","main":"worker/index.ts","compatibility_date":"2026-05-22","compatibility_flags":["nodejs_compat"],"assets":{"directory":"./out","binding":"ASSETS","run_worker_first":["/api/*"]},"d1_databases":[{"binding":"DB","database_name":"eduardo-portfolio","database_id":"local-only"}],"triggers":{"crons":["0 5 * * *"]}}
-
+{
+  "name": "eduardo-oliveira-portfolio",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-05-22",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "eduardo-portfolio",
+      "database_id": "7918938c-3438-4253-9d2c-277a0acc1a04"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "0 5 * * *"
+    ]
+  }
+}
