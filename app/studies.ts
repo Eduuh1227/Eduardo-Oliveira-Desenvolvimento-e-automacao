@@ -22,11 +22,4 @@ export const studies: Record<string, Study> = {
       ['Limitações e próximo passo', 'Um arquivo local dificulta escritas simultâneas e a execução em várias instâncias. Para esse cenário, o próximo passo seria usar um banco com transações.']
     ], run: 'npm start\nAbra http://localhost:3000.'
   },
-  'bot-whatsapp-web': {
-    sections: [
-      ['Implementação', 'Organizei o atendimento em opções de menu. O bot interpreta a resposta, consulta serviços externos e devolve o resultado na conversa.'],
-      ['Decisão técnica', 'A sessão do WhatsApp Web permite testar o fluxo com o cliente conectado. A consulta de CEP usa uma API externa para obter o endereço.'],
-      ['Limitações e próximo passo', 'O atendimento depende da sessão e da disponibilidade das APIs. O próximo passo é testar a recuperação quando uma consulta demora ou a sessão expira.']
-    ], run: 'Em uma instalação limpa, com sua própria sessão:\nnpm install\nnode index.js\nAutentique seu WhatsApp pelo QR code.'
-  }
 };

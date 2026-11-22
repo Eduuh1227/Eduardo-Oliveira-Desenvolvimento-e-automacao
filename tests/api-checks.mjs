@@ -17,6 +17,6 @@ response=await request(`/api/comments/${comment.id}/like`,{method:'POST'});liked
 const bad=new FormData();bad.set('name','QA');bad.set('text','Teste de arquivo inválido');bad.set('attachment',new File(['not an image'],'fake.png',{type:'image/png'}));response=await request('/api/comments',{method:'POST',body:bad});check('Fake image rejected',response.status===400);
 const over=new FormData();over.set('name','QA');over.set('text','Teste de tamanho máximo');over.set('attachment',new File([new Uint8Array(4*1024*1024+1)],'large.png',{type:'image/png'}));response=await request('/api/comments',{method:'POST',body:over});check('Oversize attachment rejected',response.status===413);
 response=await request('/api/media/invalid.svg');check('Invalid media path rejected',response.status===404);
-for(const slug of ['ilima-advogados','controle-de-tarefas','bot-whatsapp-web']){response=await request(`/projetos/${slug}`);check(`Project route ${slug}`,response.status===200);}
+for(const slug of ['deteccao-de-plasticos','ilima-advogados','controle-de-tarefas']){response=await request(`/projetos/${slug}`);check(`Project route ${slug}`,response.status===200);}
 response=await request('/projetos/inexistente');check('Unknown project has 404',response.status===404);
 writeFileSync(new URL('./api-results.json',import.meta.url),JSON.stringify({date:new Date().toISOString(),checks,commentId:comment.id,attachment:comment.attachmentUrl},null,2));
