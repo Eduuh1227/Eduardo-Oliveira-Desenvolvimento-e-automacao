@@ -35,7 +35,41 @@ html:has(.reduced-motion){scroll-behavior:auto}
 #about-heading { font-size: clamp(2rem, 4.4vw, 4.4rem); }
 .contact-grid { grid-template-columns: minmax(0, 1fr); max-width: 48rem; margin-inline: auto; }
 .project-actions { flex-wrap: wrap; gap: .6rem; }
-.project-preview.capture img, .case-image { display:block; width:100%; height:100%; object-fit:contain; }
+.case-image { display:block; width:100%; height:100%; object-fit:contain; }
+.detection-cover {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 22%;
+  background: #131b1a;
+}
+.detection-scene { width: 100%; height: 100%; display: block; }
+.detection-box rect { fill: none; stroke: #063e35; stroke-width: 1.8; }
+.detection-box rect:first-child { fill: #3ee6b529; stroke: #073c31; paint-order: stroke; }
+.detection-box .marker { fill: #073c31; stroke: none; }
+.detection-box text { fill: white; text-anchor: middle; font: bold 7px monospace; }
+.detection-key, .task-cover-heading, .detection-key span, .task-cover-heading span {
+  display: flex;
+  align-items: center;
+}
+.detection-key {
+  padding-inline: 5%;
+  justify-content: space-between;
+  color: #e8f2ef;
+  font: 500 3.3cqw/1 var(--mono);
+}
+.detection-key span, .task-cover-heading span { gap: .5em; }
+.detection-key svg, .task-cover-heading svg { width: 1.25em; height: 1.25em; }
+.detection-key b { color: #9ae8cd; font-size: .83em; border: 1px solid #477867; border-radius: 3px; padding: .32em; }
+.task-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5cqw;
+  background: linear-gradient(120deg, #172337, #253a56);
+}
+.task-cover-heading { width: 88%; justify-content: space-between; color: #eef5ff; font: 600 4cqw/1.2 var(--body); }
+.task-cover-heading small { font: 400 2.8cqw/1 var(--mono); color: #c7d6e9; }
+.task-cover img { display: block; width: 88%; max-height: 72%; object-fit: contain; border-radius: 2cqw; }
 .case-study p, .case-study figcaption { color:#bcbcbc; line-height:1.65; }
 .case-study figure { margin:1.2rem 0; }
 .case-study figcaption { font-size:.875rem; }
