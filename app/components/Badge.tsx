@@ -31,7 +31,7 @@ export default function Badge({ready,reduce=false}:{ready:boolean;reduce?:boolea
   const photo=new Image();photo.onload=()=>{if(disposed)return;ctx.clearRect(0,0,512,744);ctx.save();ctx.beginPath();ctx.roundRect(0,0,512,744,20);ctx.clip();const sw=photo.width*.78,sh=photo.height*.87;ctx.drawImage(photo,photo.width*.20,photo.height*.03,sw,sh,0,0,512,744);ctx.restore();texture.needsUpdate=true;};photo.src='/images/eduardo-oliveira.jpeg';
   const slot=new THREE.Mesh(new THREE.CapsuleGeometry(.035,.28,4,8),new THREE.MeshStandardMaterial({color:0x161616,roughness:.6}));slot.rotation.z=Math.PI/2;slot.position.set(0,1.46,.065);group.add(slot);
   const clip=new THREE.Mesh(new RoundedBoxGeometry(.14,.35,.15,2,.025),new THREE.MeshStandardMaterial({color:0x292929,metalness:.8,roughness:.3}));clip.position.set(0,1.65,0);group.add(clip);
-  const strapCanvas=document.createElement('canvas');strapCanvas.width=128;strapCanvas.height=1024;const sc=strapCanvas.getContext('2d')!;sc.fillStyle='#080808';sc.fillRect(0,0,128,1024);sc.strokeStyle='#333';sc.lineWidth=3;sc.strokeRect(3,0,122,1024);sc.save();sc.translate(64,512);sc.rotate(Math.PI/2);sc.fillStyle='#ddd';sc.textAlign='center';sc.font='bold 44px Arial';sc.fillText('EDUARDO · DEVELOPER',0,15);sc.restore();
+  const strapCanvas=document.createElement('canvas');strapCanvas.width=128;strapCanvas.height=1024;const sc=strapCanvas.getContext('2d')!;sc.fillStyle='#080808';sc.fillRect(0,0,128,1024);sc.strokeStyle='#333';sc.lineWidth=3;sc.strokeRect(3,0,122,1024);sc.save();sc.translate(64,512);sc.rotate(Math.PI/2);sc.fillStyle='#ddd';sc.textAlign='center';sc.font='bold 44px Arial';sc.fillText('EDUARDO · COMPUTAÇÃO',0,15);sc.restore();
   const strapTexture=new THREE.CanvasTexture(strapCanvas);strapTexture.colorSpace=THREE.SRGBColorSpace;
   const segments=48,stripGeo=new THREE.BufferGeometry(),vertices=new Float32Array((segments+1)*6),uvs=new Float32Array((segments+1)*4),indices=[];
   for(let i=0;i<=segments;i++){uvs.set([0,i/segments,1,i/segments],i*4);if(i<segments){const v=i*2;indices.push(v,v+1,v+2,v+1,v+3,v+2);}}
@@ -74,7 +74,7 @@ export default function Badge({ready,reduce=false}:{ready:boolean;reduce?:boolea
  return <div className={`badge-scene ${active?'is-dragging':''}`}>
   <div className="badge-canvas" ref={mount} aria-hidden="true"/>
   <button ref={touch} className="badge-touch-target" tabIndex={-1} aria-hidden="true"/>
-  {failed&&<div className="badge-fallback"><span/><img src="/images/eduardo-oliveira.jpeg" alt="Eduardo Oliveira"/><p>A visualização 3D não está disponível neste navegador.</p></div>}
+  {failed&&<div className="badge-fallback"><span/><img src="/images/eduardo-oliveira.jpeg" alt="Eduardo Augusto Oliveira Cavallin"/><p>A visualização 3D não está disponível neste navegador.</p></div>}
   <button className="badge-keyboard" aria-label="Interagir com o crachá. Use as setas para balançar e Escape para estabilizar." onKeyDown={e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();control.current?.kick(e.key==='ArrowLeft'?-1:1);}if(e.key==='Escape')control.current?.reset();}} onClick={()=>control.current?.kick(1)}>Arraste o crachá <span>↔</span></button>
  </div>;
 }

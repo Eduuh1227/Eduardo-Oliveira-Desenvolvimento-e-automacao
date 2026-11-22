@@ -1,5 +1,9 @@
 import { Check, MoreHorizontal, Send } from 'lucide-react';
 export default function ProjectPreview({kind,large=false}:{kind:string;large?:boolean}) {
+ if (kind === 'plastic' || kind === 'tasks') {
+   const plastic = kind === 'plastic';
+   return <div className={`project-preview capture ${large?'large':''}`}><img src={plastic?'/projects/plastic-output.webp':'/projects/tasks.webp'} alt={plastic?'Saída real do detector com caixas sobre resíduos na areia':'Captura da tela de acesso do Controle de Tarefas'} /></div>;
+ }
  return <div className={`project-preview ${kind} ${large?'large':''}`} role="img" aria-label="Representação visual das funcionalidades do projeto">
  <div className="preview-chrome"><i/><i/><i/><span>{kind==='law'?'ilima.adv':kind==='tasks'?'minhas tarefas':'atendimento online'}</span></div>
  {kind==='law'?<div className="law-art"><span className="law-mark">ilima<span>ADVOGADOS</span></span><div className="law-rule"/><p>Compromisso.<br/>Confiança.<br/><em>Justiça.</em></p><span className="law-link">Conheça nossa atuação ↗</span></div>:
