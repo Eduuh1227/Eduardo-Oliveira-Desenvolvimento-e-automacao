@@ -4,11 +4,11 @@ Migração do portfólio Next.js para páginas estáticas e API em Cloudflare Wo
 
 ## Arquitetura e custos
 
-As páginas são exportadas pelo Next.js para out/. Só /api/* executa o Worker; o conteúdo estático não passa pelo código da API. Comentários, curtidas, mensagens e anexos usam D1. As imagens de comentários são armazenadas em blocos de 512 KiB, abaixo do limite de tamanho de linha do D1. Não há dependência de Vercel Blob, R2 ou assinatura paga.
+As páginas são exportadas pelo Next.js para out/. Só /api/* executa o Worker; o conteúdo estático não passa pelo código da API. O formulário de contato grava em D1. As rotas públicas de comentários, curtidas e anexos foram desativadas e os dados anteriores foram preservados. Não há dependência de Vercel Blob, R2 ou assinatura paga.
 
-O plano gratuito possui limites: Workers 100 mil requisições/dia e 10 ms de CPU por chamada; D1 tem 500 MB por banco no Free. Fotos, currículo e certificados ficam nos arquivos estáticos, sem consumir o banco. Para maior volume de anexos, avaliar armazenamento de objetos e seus custos antes de ativar. Os testes locais não comprovam o tempo de CPU em produção.
+O plano gratuito possui limites: Workers 100 mil requisições/dia e 10 ms de CPU por chamada; D1 tem 500 MB por banco no Free. Fotos, currículo e certificados ficam nos arquivos estáticos, sem consumir o banco. Os testes locais não comprovam o tempo de CPU em produção.
 
-Mensagens ficam privadas na tabela messages; não há envio automático de e-mail. Os dados de teste ficam apenas na base local. Nenhum registro da hospedagem anterior foi importado automaticamente.
+Mensagens ficam privadas na tabela messages; não há envio automático de e-mail. Os testes automatizados da pasta tests usam a base local. Nenhum registro da hospedagem anterior foi importado automaticamente.
 
 ## Desenvolvimento e testes
 
@@ -21,7 +21,7 @@ Requer Node.js 24.
 5. node tests/api-checks.mjs
 6. node tests/cloudflare-checks.mjs
 
-Os testes criam registros identificados no banco local. O segundo teste confere persistência de imagem em vários blocos e disponibilidade dos arquivos estáticos. npm run dev abre apenas a interface Next.js; para testar a API, use Wrangler.
+Os testes criam registros identificados no banco local. O segundo teste confere a disponibilidade dos arquivos estáticos. npm run dev abre apenas a interface Next.js; para testar a API, use Wrangler.
 
 ## Publicação
 
